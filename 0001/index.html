@@ -14,6 +14,7 @@
     --border: #e5e5e5;
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
     font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
@@ -26,24 +27,61 @@
     margin: 0 auto;
     padding: 0 24px;
   }
-  header.hero {
+
+  /* Header / Nav */
+  header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+  .site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .site-header .brand {
+    font-weight: 800;
+    font-size: 1.1rem;
+  }
+  .site-header nav {
+    display: flex;
+    gap: 20px;
+  }
+  .site-header nav a {
+    color: var(--text-soft);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .site-header nav a:hover {
+    color: var(--accent);
+  }
+
+  /* Hero (no image available -> text-only) */
+  section.hero {
     background: var(--bg-soft);
     padding: 96px 0 72px;
     text-align: center;
     border-bottom: 1px solid var(--border);
   }
-  header.hero h1 {
+  section.hero h1 {
     font-size: 2.6rem;
     font-weight: 800;
     margin: 0 0 12px;
     letter-spacing: 0.02em;
   }
-  header.hero p.catch {
+  section.hero p.catch {
     font-size: 1.15rem;
     color: var(--text-soft);
     margin: 0;
     font-weight: 500;
   }
+
   section {
     padding: 56px 0;
     border-bottom: 1px solid var(--border);
@@ -100,11 +138,6 @@
   .btn:hover {
     opacity: 0.85;
   }
-  .btn.outline {
-    background: transparent;
-    color: var(--accent);
-    border: 2px solid var(--accent);
-  }
   .contact-actions {
     display: flex;
     flex-wrap: wrap;
@@ -118,42 +151,57 @@
     font-size: 0.85rem;
     background: var(--bg-soft);
   }
+  footer .footer-name {
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
   @media (max-width: 480px) {
-    header.hero { padding: 64px 0 48px; }
-    header.hero h1 { font-size: 2rem; }
+    section.hero { padding: 64px 0 48px; }
+    section.hero h1 { font-size: 2rem; }
     dl.info { grid-template-columns: 90px 1fr; }
+    .site-header nav { gap: 12px; }
+    .site-header nav a { font-size: 0.8rem; }
   }
 </style>
 </head>
 <body>
 
-  <header class="hero">
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">0001</div>
+      <nav>
+        <a href="#access">アクセス</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
     <div class="container">
       <h1>0001</h1>
       <p class="catch">何でも屋</p>
     </div>
-  </header>
+  </section>
 
-  <section>
+  <section id="concept">
     <div class="container">
-      <h2>紹介</h2>
+      <h2>私たちのこだわり</h2>
       <p class="description">テスト</p>
     </div>
   </section>
 
-  <section>
+  <section id="access">
     <div class="container">
-      <h2>営業時間・お問い合わせ先</h2>
+      <h2>アクセス</h2>
       <dl class="info">
         <dt>営業時間</dt>
         <dd>11:30～19:30</dd>
-        <dt>メール</dt>
-        <dd><a href="mailto:xxx@yahoo.co.jp" style="color: var(--accent); text-decoration: none;">xxx@yahoo.co.jp</a></dd>
       </dl>
     </div>
   </section>
 
-  <section>
+  <section id="contact">
     <div class="container">
       <h2>お問い合わせ</h2>
       <div class="contact-actions">
@@ -164,7 +212,8 @@
 
   <footer>
     <div class="container">
-      0001 — 発行日: 2026-08-04
+      <div class="footer-name">0001</div>
+      発行日: 2026-08-06
     </div>
   </footer>
 
