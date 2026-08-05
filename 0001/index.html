@@ -28,7 +28,6 @@
     padding: 0 24px;
   }
 
-  /* Header / Nav */
   header.site-header {
     position: sticky;
     top: 0;
@@ -62,7 +61,6 @@
     color: var(--accent);
   }
 
-  /* Hero (no image available -> text-only) */
   section.hero {
     background: var(--bg-soft);
     padding: 96px 0 72px;
@@ -124,6 +122,40 @@
   dl.info dd {
     margin: 0;
   }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .menu-card {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    background: var(--bg-soft);
+  }
+  .menu-card .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .menu-card .item-name {
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 0 0 6px;
+  }
+  .menu-card .item-price {
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0;
+  }
+
   .btn {
     display: inline-block;
     padding: 12px 28px;
@@ -171,6 +203,7 @@
     <div class="container">
       <div class="brand">0001</div>
       <nav>
+        <a href="#menu">メニュー</a>
         <a href="#access">アクセス</a>
         <a href="#contact">お問い合わせ</a>
       </nav>
@@ -197,7 +230,24 @@
       <dl class="info">
         <dt>営業時間</dt>
         <dd>11:30～19:30</dd>
+        <dt>住所</dt>
+        <dd>住所</dd>
+        <dt>電話番号</dt>
+        <dd>電話番号</dd>
       </dl>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="container">
+      <h2>メニュー・商品一覧</h2>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <span class="badge">人気</span>
+          <p class="item-name">品名</p>
+          <p class="item-price">¥100</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -205,6 +255,7 @@
     <div class="container">
       <h2>お問い合わせ</h2>
       <div class="contact-actions">
+        <a class="btn" href="tel:電話番号">電話をかける</a>
         <a class="btn" href="mailto:xxx@yahoo.co.jp">メールを送る</a>
       </div>
     </div>
