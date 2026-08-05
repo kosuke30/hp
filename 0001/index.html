@@ -23,11 +23,12 @@
     line-height: 1.7;
   }
   .container {
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 0 24px;
   }
 
+  /* Header / Nav */
   header.site-header {
     position: sticky;
     top: 0;
@@ -40,12 +41,21 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 14px;
-    padding-bottom: 14px;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
   .site-header .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+  }
+  .site-header .brand img {
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    border-radius: 50%;
   }
   .site-header nav {
     display: flex;
@@ -61,23 +71,48 @@
     color: var(--accent);
   }
 
+  /* Hero with background image */
   section.hero {
-    background: var(--bg-soft);
-    padding: 96px 0 72px;
-    text-align: center;
+    position: relative;
+    height: 60vh;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     border-bottom: 1px solid var(--border);
   }
+  section.hero img.hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  section.hero .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.55));
+  }
+  section.hero .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: 0 24px;
+  }
   section.hero h1 {
-    font-size: 2.6rem;
+    font-size: 2.8rem;
     font-weight: 800;
     margin: 0 0 12px;
     letter-spacing: 0.02em;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
   }
   section.hero p.catch {
-    font-size: 1.15rem;
-    color: var(--text-soft);
+    font-size: 1.2rem;
     margin: 0;
     font-weight: 500;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
   }
 
   section {
@@ -108,7 +143,26 @@
     font-size: 1.05rem;
     color: var(--text);
     white-space: pre-wrap;
+    margin: 0;
   }
+
+  /* Concept 2-column */
+  .concept-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .concept-grid img {
+    width: 100%;
+    border-radius: 14px;
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+  }
+  @media (max-width: 640px) {
+    .concept-grid { grid-template-columns: 1fr; }
+  }
+
   dl.info {
     display: grid;
     grid-template-columns: 120px 1fr;
@@ -176,6 +230,7 @@
     gap: 12px;
     margin-top: 20px;
   }
+
   footer {
     text-align: center;
     padding: 40px 0;
@@ -183,13 +238,21 @@
     font-size: 0.85rem;
     background: var(--bg-soft);
   }
+  footer img.footer-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
   footer .footer-name {
     font-weight: 700;
     color: var(--text);
     margin-bottom: 6px;
   }
+
   @media (max-width: 480px) {
-    section.hero { padding: 64px 0 48px; }
+    section.hero { height: 50vh; min-height: 300px; }
     section.hero h1 { font-size: 2rem; }
     dl.info { grid-template-columns: 90px 1fr; }
     .site-header nav { gap: 12px; }
@@ -201,7 +264,10 @@
 
   <header class="site-header">
     <div class="container">
-      <div class="brand">0001</div>
+      <div class="brand">
+        <img src="../../../../data/attachments/2026/08/a57e4b929bd24d07.jpg" alt="0001 ロゴ">
+        <span>0001</span>
+      </div>
       <nav>
         <a href="#menu">メニュー</a>
         <a href="#access">アクセス</a>
@@ -211,7 +277,9 @@
   </header>
 
   <section class="hero">
-    <div class="container">
+    <img class="hero-bg" src="../../../../data/attachments/2026/08/b54207221f6b48a0.jpg" alt="0001">
+    <div class="overlay"></div>
+    <div class="hero-content">
       <h1>0001</h1>
       <p class="catch">何でも屋</p>
     </div>
@@ -220,7 +288,10 @@
   <section id="concept">
     <div class="container">
       <h2>私たちのこだわり</h2>
-      <p class="description">テスト</p>
+      <div class="concept-grid">
+        <p class="description">テスト</p>
+        <img src="../../../../data/attachments/2026/08/63c589a37e5c4496.jpg" alt="0001の写真">
+      </div>
     </div>
   </section>
 
@@ -263,6 +334,7 @@
 
   <footer>
     <div class="container">
+      <img class="footer-logo" src="../../../../data/attachments/2026/08/a57e4b929bd24d07.jpg" alt="0001 ロゴ">
       <div class="footer-name">0001</div>
       発行日: 2026-08-06
     </div>
